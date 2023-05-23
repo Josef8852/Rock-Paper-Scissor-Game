@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/style.css">
+  <title>Rock-Paper-Scissor</title>
+</head>
+
+<body>
+
+
+  <div class="modal">
+    <img src="images/image-rules.svg" alt="">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="30"
+      fill="gray"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+      <path
+        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+    </svg>
+  </div>
+
+
+  <div class="overlay"></div>
+
+  <header>
+    <div class="logo">
+      <img src="images/logo.svg" alt="">
+    </div>
+    <div class="box">
+      <p class="text">SCORE</p>
+      <p class="score">0</p>
+    </div>
+  </header>
+
+
+  <section class="landing">
+    <div class="box">
+      <img src="images/bg-triangle.svg" alt="" class="triangle">
+      <img src="images/rock.svg" alt="" class="rock state">
+      <img src="images/paper.svg" alt="" class="paper state">
+      <img src="images/scissor.svg" alt="" class="scissor state">
+    </div>
+  </section>
+
+
+
+
+
+  <section class="winner">
+    <div class="result">
+      <p class="winnerText">IT'S A DRAW</p>
+      <button class="again">PLAY AGAIN</button>
+    </div>
+    <div class="pc">
+      <div class="animation">
+        <p>PC PICKED</p>
+        <svg viewBox="0 0 100 100" height="150">
+          <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6">
+            <!-- left line -->
+            <path d="M 21 40 V 59">
+              <animateTransform attributeName="transform" attributeType="XML" type="rotate" values="0 21 59; 180 21 59"
+                dur="2s" repeatCount="indefinite" />
+            </path>
+            <!-- right line -->
+            <path d="M 79 40 V 59">
+              <animateTransform attributeName="transform" attributeType="XML" type="rotate" values="0 79 59; -180 79 59"
+                dur="2s" repeatCount="indefinite" />
+            </path>
+            <!-- top line -->
+            <path d="M 50 21 V 40">
+              <animate attributeName="d" values="M 50 21 V 40; M 50 59 V 40" dur="2s" repeatCount="indefinite" />
+            </path>
+            <!-- btm line -->
+            <path d="M 50 60 V 79">
+              <animate attributeName="d" values="M 50 60 V 79; M 50 98 V 79" dur="2s" repeatCount="indefinite" />
+            </path>
+            <!-- top box -->
+            <path d="M 50 21 L 79 40 L 50 60 L 21 40 Z">
+              <animate attributeName="stroke" values="rgba(255,255,255,1); rgba(100,100,100,0)" dur="2s"
+                repeatCount="indefinite" />
+            </path>
+            <!-- mid box -->
+            <path d="M 50 40 L 79 59 L 50 79 L 21 59 Z" />
+            <!-- btm box -->
+            <path d="M 50 59 L 79 78 L 50 98 L 21 78 Z">
+              <animate attributeName="stroke" values="rgba(100,100,100,0); rgba(255,255,255,1)" dur="2s"
+                repeatCount="indefinite" />
+            </path>
+            <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 0; 0 -19"
+              dur="2s" repeatCount="indefinite" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="rules">
+    <p>RULES</p>
+  </div>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

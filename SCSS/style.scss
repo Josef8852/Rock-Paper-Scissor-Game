@@ -1,0 +1,314 @@
+@use '_normalize' ; 
+
+/* Global rules */
+
+
+/* Variables */
+
+$darkScissor : hsl(39, 89%, 49%) ; 
+$lightScissor : hsl(40, 84%, 53%) ; 
+
+$darkRock : hsl(349, 71%, 52%)  ;
+$lightRock : hsl(349, 70%, 56%) ; 
+
+$darkPaper  : hsl(230, 89%, 62%) ; 
+$lightPaper : hsl(230, 89%, 65%) ; 
+
+$textOutline :  hsl(217, 16%, 45%) ; 
+$darkText :  hsl(229, 25%, 31%) ; 
+$scoreText : hsl(229, 64%, 46%) ; 
+
+
+/* Variables */
+
+*, *::before , *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background : radial-gradient(hsl(214, 47%, 23%) , hsl(237, 49%, 15%));
+  height: 100vh ;
+  position: relative;
+}
+
+
+/* End Global Rules */
+
+header {
+  display: flex;
+  border: 3px solid $textOutline;
+  width: 40%;
+  border-radius: 20px;
+  padding: 20px;
+  margin-left: 30%;
+  transform: translateY(30px);
+
+
+  img {
+    height: 100px;
+  }
+
+  .box {
+    margin-left: auto;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    height: 100px;
+    padding: 30px;
+
+    .score {
+      font-size: 40px;
+      font-weight: 800;
+      color: $darkText;
+      transform: translateY(-5px);
+    }
+
+    .text {
+      color: $scoreText;
+      font-size: 10px;
+      font-weight: 800;
+      transform: translateY(-15px);
+    }
+  }
+}
+
+
+.landing {
+  align-items: center;
+  justify-content: center;
+  transform: translateY(150px);
+  display: flex;
+  .box {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .triangle {
+      height: 200px ;
+    }
+  }
+}
+
+
+.winner {
+  align-items: center;
+  justify-content: space-evenly;
+  transform: translateY(150px);
+  display: none;
+  text-align: center;
+
+
+  p {
+    color: white;
+    font-size: 20px;
+    transform: translateY(-80px);
+  }
+
+  button {
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 3px solid $textOutline;
+    outline: none;
+    background-color:transparent;
+    &:hover {
+      background-color: white;
+      color: $scoreText;
+  }
+}
+}
+
+
+.finalState {
+  background-color: white;
+  border-radius: 50%;
+  padding: 25px;
+  box-shadow: 0px 3px 5px ;
+  height: 150px;
+}
+
+.state {
+  background-color: white;
+  border-radius: 50%;
+  padding: 25px;
+  box-shadow: 0px 3px 5px ;
+  position: absolute;
+  height: 110px;
+  cursor: pointer;
+
+  &:hover {
+    transform:scale(120%);
+  }
+}
+
+.paper {
+  top: -50px;
+  left: -50px;
+  border: 10px solid $darkPaper;
+}
+
+.rock {
+  bottom: -30px;
+  border: 10px solid $darkRock;
+}
+
+.scissor {
+  right: -50px;
+  top: -50px;
+  border: 10px solid $darkScissor;
+}
+
+.rules {
+  border: 2px solid $textOutline;
+  padding: 10px 15px;
+  width: fit-content;
+  border-radius: 20px;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: white;
+
+    p {
+      color: $scoreText;
+    }
+  }
+}
+
+
+
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f3f3f3;
+  z-index: 12;
+  box-shadow: 0 3px 5px 5px gray;
+  align-items: center;
+  padding : 40px;
+  color: #444444;
+  border-radius: 15px;
+  animation: zoomIn  0.2s ease-out forwards;
+  display: none;
+  svg {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    cursor: pointer;
+  }
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 11;
+  display: none;
+}
+
+
+
+.show-block {
+  display: block;
+} 
+
+
+/* Responsive */
+
+@media(max-width : 768px) {
+
+  body {
+    height: 110vh;
+  }
+
+header {
+  width: 80%;
+  margin-left: 10%;
+  img {
+    height: 80px;
+  }
+
+  .box {
+    height: 80px;
+    .score {
+      font-size: 20px ;
+    }
+  }
+}
+
+
+.finalState {
+  height: 100px;
+  padding: 15px;
+}
+
+.winner {
+
+  .player {
+    transform: translateX(20px);
+  }
+
+  .box {
+    transform: translateX(-20px);
+  }
+
+  .result {
+    transform: translateY(30vh);
+    p{
+      font-size: 30px;
+      transform: translateY(-30px);
+    }
+
+    button {
+      font-size: 30px;
+      font-weight: 800;
+    }
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  svg {
+    height: 100px;
+  }
+
+}
+
+}
